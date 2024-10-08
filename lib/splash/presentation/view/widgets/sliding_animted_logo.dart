@@ -19,22 +19,22 @@ class SlidingAnimatedLogo extends StatelessWidget {
         builder: (context, _) {
           return SlideTransition(
             position: slidingAnimation,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+            child: Stack(
               children: [
+                // Center the icon behind the text
+                Center(
+                  child: Icon(
+                    FontAwesomeIcons.music,
+                    size: 250,
+                    color: Colors.white.withOpacity(
+                        0.5), // Optional: make the icon slightly transparent
+                  ),
+                ),
                 Center(
                   child: Text(
                     'Groove',
                     style: AppTextStyles.heading.copyWith(fontSize: 55),
                   ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const Icon(
-                  FontAwesomeIcons.music,
-                  size: 50,
                 ),
                 const SizedBox(
                   height: 4,
