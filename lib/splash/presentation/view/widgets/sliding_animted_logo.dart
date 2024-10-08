@@ -33,7 +33,8 @@ class SlidingAnimatedLogo extends StatelessWidget {
                 Center(
                   child: Text(
                     'Groove',
-                    style: AppTextStyles.heading.copyWith(fontSize: 55),
+                    style: AppTextStyles.heading
+                        .copyWith(fontSize: 55, fontWeight: FontWeight.w900),
                   ),
                 ),
                 const SizedBox(
