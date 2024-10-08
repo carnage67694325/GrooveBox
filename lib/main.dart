@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:groove_box/core/utils/app_router.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const GrooveBoxApp());
 }
 
 class GrooveBoxApp extends StatelessWidget {
@@ -9,6 +10,8 @@ class GrooveBoxApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
+    );
   }
 }
