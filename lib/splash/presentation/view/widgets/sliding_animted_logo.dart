@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:groove_box/core/utils/app_text_styles.dart';
 
 class SlidingAnimatedLogo extends StatelessWidget {
@@ -24,9 +25,16 @@ class SlidingAnimatedLogo extends StatelessWidget {
               children: [
                 Center(
                   child: Text(
-                    'GrooveBox',
+                    'Groove',
                     style: AppTextStyles.heading.copyWith(fontSize: 55),
                   ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const Icon(
+                  FontAwesomeIcons.music,
+                  size: 50,
                 ),
                 const SizedBox(
                   height: 4,
