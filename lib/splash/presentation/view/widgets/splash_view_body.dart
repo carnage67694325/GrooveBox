@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:groove_box/core/utils/app_gradient.dart';
 import 'package:groove_box/core/utils/app_router.dart';
 import 'package:groove_box/splash/presentation/view/widgets/sliding_animted_logo.dart';
 
@@ -30,9 +31,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SlidingAnimatedLogo(
-          animationController: animationController,
-          slidingAnimation: slidingAnimation),
+      body: Container(
+        decoration:
+            const BoxDecoration(gradient: AppGradients.horizontalGradient),
+        child: SlidingAnimatedLogo(
+            animationController: animationController,
+            slidingAnimation: slidingAnimation),
+      ),
     );
   }
 

@@ -22,9 +22,11 @@ class SlidingAnimatedLogo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  'GrooveBox',
-                  style: AppTextStyles.heading.copyWith(fontSize: 60),
+                Center(
+                  child: Text(
+                    'GrooveBox',
+                    style: AppTextStyles.heading.copyWith(fontSize: 55),
+                  ),
                 ),
                 const SizedBox(
                   height: 4,
