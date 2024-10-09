@@ -5,12 +5,19 @@ import 'package:groove_box/core/utils/app_gradient.dart';
 import 'package:groove_box/core/utils/app_text_styles.dart';
 import 'package:groove_box/core/utils/widgets/music_card.dart';
 
-class MusicListTile extends StatelessWidget {
+class MusicListTile extends StatefulWidget {
   const MusicListTile({
     super.key,
     required this.musicModel,
   });
   final MusicModel musicModel;
+
+  @override
+  State<MusicListTile> createState() => _MusicListTileState();
+}
+
+class _MusicListTileState extends State<MusicListTile> {
+  bool isAddedToFavourite = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -37,22 +44,38 @@ class MusicListTile extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          musicModel.title,
+                          widget.musicModel.title,
                           style: AppTextStyles.subHeading,
                         ),
                         const SizedBox(
                           height: 2,
                         ),
                         Text(
-                          musicModel.artist,
+                          widget.musicModel.artist,
                           style: AppTextStyles.subHeading,
                         ),
                       ],
                     ),
                   ),
                   const Spacer(),
-                  const Icon(FontAwesomeIcons.heart),
-                  SizedBox(
+                  IconButton(
+                      onPressed: () {
+                        if (!isAddedToFavourite) {
+                          setState(() {
+                            isAddedToFavourite = true;
+                          });
+                        } else {
+                          setState(() {
+                            isAddedToFavourite = false;
+                          });
+                        }
+                      },
+                      icon: isAddedToFavourite
+                          ? Icon(
+                              FontAwesomeIcons.solidHeart,
+                            )
+                          : Icon(FontAwesomeIcons.heart)),
+                  const SizedBox(
                     width: 8,
                   )
                 ],
