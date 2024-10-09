@@ -4,13 +4,14 @@ import 'package:groove_box/core/model/music_model.dart';
 import 'package:groove_box/core/utils/app_gradient.dart';
 import 'package:groove_box/core/utils/app_text_styles.dart';
 import 'package:groove_box/core/utils/widgets/music_card.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 
 class MusicListTile extends StatefulWidget {
   const MusicListTile({
     super.key,
-    required this.musicModel,
+    required this.songModel,
   });
-  final MusicModel musicModel;
+  final SongModel songModel;
 
   @override
   State<MusicListTile> createState() => _MusicListTileState();
@@ -34,8 +35,12 @@ class _MusicListTileState extends State<MusicListTile> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(
-                      height: MediaQuery.sizeOf(context).height * .13,
-                      child: MusicCard(onTap: () {})),
+                    height: MediaQuery.sizeOf(context).height * .13,
+                    child: MusicCard(
+                      onTap: () {},
+                      songModel: widget.songModel,
+                    ),
+                  ),
                   const SizedBox(
                     width: 20,
                   ),
@@ -44,14 +49,14 @@ class _MusicListTileState extends State<MusicListTile> {
                     child: Column(
                       children: [
                         Text(
-                          widget.musicModel.title,
+                          widget.songModel.title,
                           style: AppTextStyles.subHeading,
                         ),
                         const SizedBox(
                           height: 2,
                         ),
                         Text(
-                          widget.musicModel.artist,
+                          widget.songModel.artist ?? 'artist',
                           style: AppTextStyles.subHeading,
                         ),
                       ],

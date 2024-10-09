@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:groove_box/core/simple_bloc_observer.dart';
+import 'package:groove_box/core/utils/simple_bloc_observer.dart';
 import 'package:groove_box/core/utils/app_router.dart';
 import 'package:groove_box/features/home/data/home_repo.dart';
 import 'package:groove_box/features/home/data/home_repo_imp.dart';

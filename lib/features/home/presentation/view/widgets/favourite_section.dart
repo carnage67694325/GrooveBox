@@ -20,7 +20,7 @@ class FavouriteSection extends StatelessWidget {
               style: AppTextStyles.heading,
             ),
           ),
-          RecentlyPlayedList(),
+          // RecentlyPlayedList(),
         ],
       ),
     );

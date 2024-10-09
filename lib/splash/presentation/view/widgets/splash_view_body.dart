@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:groove_box/core/utils/app_gradient.dart';
 import 'package:groove_box/core/utils/app_router.dart';
 import 'package:groove_box/core/utils/permission_handler.dart';
+import 'package:groove_box/features/home/presentation/view_model/get_music_cubit/get_music_cubit.dart';
 import 'package:groove_box/splash/presentation/view/widgets/sliding_animted_logo.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -22,6 +24,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     initiSlidingAnimation();
     transitionToHomeView();
     PermissionHandler.requestPermissions();
+    BlocProvider.of<GetMusicCubit>(context).getAllMusic();
   }
 
   @override
