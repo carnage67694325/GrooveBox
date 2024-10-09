@@ -71,10 +71,10 @@ class _MusicListTileState extends State<MusicListTile> {
                         }
                       },
                       icon: isAddedToFavourite
-                          ? Icon(
+                          ? const Icon(
                               FontAwesomeIcons.solidHeart,
                             )
-                          : Icon(FontAwesomeIcons.heart)),
+                          : const Icon(FontAwesomeIcons.heart)),
                   const SizedBox(
                     width: 8,
                   )
