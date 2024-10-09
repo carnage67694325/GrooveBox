@@ -14,5 +14,7 @@ final class GetMusicSuccess extends GetMusicState {
 final class GetMusicLoading extends GetMusicState {}
 
 final class GetMusicFailure extends GetMusicState {
-  String err = 'opps there is an error';
+  final String errMessage;
+
+  GetMusicFailure({required this.errMessage});
 }
