@@ -32,7 +32,7 @@ class _MusicListTileState extends State<MusicListTile> {
           child: Column(
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     height: MediaQuery.sizeOf(context).height * .13,
@@ -48,16 +48,26 @@ class _MusicListTileState extends State<MusicListTile> {
                     padding: const EdgeInsets.only(bottom: 15),
                     child: Column(
                       children: [
-                        Text(
-                          widget.songModel.title,
-                          style: AppTextStyles.subHeading,
+                        SizedBox(
+                          width: 150,
+                          child: Text(
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            widget.songModel.title,
+                            style: AppTextStyles.subHeading,
+                          ),
                         ),
                         const SizedBox(
                           height: 2,
                         ),
-                        Text(
-                          widget.songModel.artist ?? 'artist',
-                          style: AppTextStyles.subHeading,
+                        SizedBox(
+                          width: 150,
+                          child: Text(
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            widget.songModel.artist ?? 'artist',
+                            style: AppTextStyles.body,
+                          ),
                         ),
                       ],
                     ),

@@ -8,7 +8,7 @@ class AppTextStyles {
   );
 
   static const TextStyle subHeading = TextStyle(
-    fontSize: 20.0, // For song titles, subheadings
+    fontSize: 16.0, // For song titles, subheadings
     fontWeight: FontWeight.w500,
     color: Colors.white70,
   );
