@@ -3,6 +3,7 @@ import 'package:groove_box/core/utils/app_gradient.dart';
 import 'package:groove_box/core/utils/app_text_styles.dart';
 import 'package:groove_box/core/utils/widgets/music_card.dart';
 import 'package:groove_box/features/home/presentation/view/widgets/favourite_section.dart';
+import 'package:groove_box/features/home/presentation/view/widgets/most_played.dart';
 import 'package:groove_box/features/home/presentation/view/widgets/recently_played_list.dart';
 import 'package:groove_box/features/home/presentation/view/widgets/recently_played_widgets.dart';
 
@@ -27,7 +28,27 @@ class HomeViewBody extends StatelessWidget {
               height: 10,
             ),
           ),
-          FavouriteSection()
+          FavouriteSection(),
+          SliverToBoxAdapter(
+              child: SizedBox(
+            height: 10,
+          )),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.only(left: 6),
+              child: Text(
+                'Most Played',
+                style: AppTextStyles.heading,
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+              child: SizedBox(
+            height: 10,
+          )),
+          SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              sliver: MostPlayed())
         ],
       ),
     );

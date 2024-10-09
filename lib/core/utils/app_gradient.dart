@@ -11,10 +11,10 @@ class AppGradients {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
-  static const LinearGradient diagonalGradient = LinearGradient(
+  static LinearGradient diagonalGradient = LinearGradient(
     colors: [
-      AppColors.primary, // Purple
-      AppColors.accent, // Pink
+      AppColors.cardColor.withOpacity(0.5), // Adjust opacity value (0.0 - 1.0)
+      AppColors.primaryDark.withOpacity(0.2),
     ],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
