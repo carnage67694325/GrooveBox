@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
               height: 40,
             ),
           ),
-          //RecentlyPlayedSection(),
+          RecentlyPlayedSection(),
           SliverToBoxAdapter(
             child: SizedBox(
               height: 10,
