@@ -13,7 +13,7 @@ class MusicCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: SizedBox(
           child: AspectRatio(
-              aspectRatio: 2.6 / 4,
+              aspectRatio: 3 / 4,
               child: Container(
                 color: AppColors.musicCardColor,
                 child: const Icon(
