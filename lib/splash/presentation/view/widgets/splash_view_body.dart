@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:groove_box/core/utils/app_gradient.dart';
 import 'package:groove_box/core/utils/app_router.dart';
+import 'package:groove_box/core/utils/permission_handler.dart';
 import 'package:groove_box/splash/presentation/view/widgets/sliding_animted_logo.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -20,6 +21,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     super.initState();
     initiSlidingAnimation();
     transitionToHomeView();
+    PermissionHandler.requestPermissions();
   }
 
   @override
