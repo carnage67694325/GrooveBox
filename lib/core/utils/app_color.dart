@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  static const Color musicCardColor = Color(0xffF2F0EF);
   static const Color primary = Color(0xFF5B16D0); // Purple gradient start
   static const Color primaryDark = Color(0xFF2E0D75); // Darker purple
   static const Color accent = Color(0xFFEC407A);
