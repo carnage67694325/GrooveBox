@@ -1,18 +1,25 @@
+import 'dart:developer';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:groove_box/features/music_player/data/repo/music_player_repo.dart';
 
 class MusicPlayerRepoImpl implements MusicPlayerRepo {
   final AudioPlayer audioPlayer = AudioPlayer();
-  final SongModel songModel;
+  SongModel? songModel;
 
-  MusicPlayerRepoImpl({required this.songModel});
+  MusicPlayerRepoImpl({this.songModel});
+
+  @override
+  void setSong(SongModel song) {
+    songModel = song;
+  }
 
   @override
   Future<void> backwarddMusic() async {
     // Start playing the current song
-    if (songModel.uri != null) {
-      await audioPlayer.play(UrlSource(songModel.uri!));
+    if (songModel?.uri != null) {
+      await audioPlayer.play(UrlSource(songModel!.uri!));
     } else {
       print('Song URI is null');
     }
@@ -32,8 +39,9 @@ class MusicPlayerRepoImpl implements MusicPlayerRepo {
 
   @override
   Future<void> playMusic() async {
-    if (songModel.uri != null) {
-      await audioPlayer.play(UrlSource(songModel.uri!));
+    if (songModel?.uri != null) {
+      log('Playing music from: ${songModel!.uri}');
+      await audioPlayer.play(UrlSource(songModel!.uri!));
     }
   }
 }

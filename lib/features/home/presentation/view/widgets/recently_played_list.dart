@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:groove_box/core/utils/widgets/music_card.dart';
 import 'package:groove_box/features/home/presentation/view_model/get_music_cubit/get_music_cubit.dart';
+import 'package:groove_box/features/music_player/presentation/view_model/cubit/music_control_cubit.dart';
 
 class RecentlyPlayedList extends StatelessWidget {
   const RecentlyPlayedList({super.key});
@@ -26,9 +27,6 @@ class RecentlyPlayedList extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: MusicCard(
-                      onTap: () {
-                        log('tapped');
-                      },
                       songModel: state.songs[index],
                     ),
                   );

@@ -4,6 +4,9 @@ import 'package:groove_box/core/utils/simple_bloc_observer.dart';
 import 'package:groove_box/core/utils/app_router.dart';
 import 'package:groove_box/features/home/data/repos/home_repo_imp.dart';
 import 'package:groove_box/features/home/presentation/view_model/get_music_cubit/get_music_cubit.dart';
+import 'package:groove_box/features/music_player/data/repo/music_player_repo_impl.dart';
+import 'package:groove_box/features/music_player/presentation/view_model/cubit/music_control_cubit.dart';
+
 import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
@@ -20,7 +23,7 @@ class GrooveBoxApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => GetMusicCubit(HomeRepoImp()),
-        )
+        ),
       ],
       child: MaterialApp.router(
         theme: ThemeData.dark().copyWith(),

@@ -24,6 +24,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     initiSlidingAnimation();
     transitionToHomeView();
     PermissionHandler.requestPermissions();
+
     BlocProvider.of<GetMusicCubit>(context).getAllMusic();
   }
 
