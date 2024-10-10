@@ -16,7 +16,7 @@ class MusicControlCubit extends Cubit<MusicControlState> {
       emit(MusicLoadingState());
       musicPlayerRepo.setSong(song);
       await musicPlayerRepo.playMusic();
-      emit(MusicPlayingState(song)); // Passing the current song
+      emit(MusicPlayingState(song));
     } catch (e) {
       emit(MusicErrorState(e.toString()));
     }
@@ -48,7 +48,7 @@ class MusicControlCubit extends Cubit<MusicControlState> {
   Future<void> backwardMusic() async {
     try {
       emit(MusicLoadingState());
-      await musicPlayerRepo.backwarddMusic();
+      await musicPlayerRepo.backwardMusic();
       emit(MusicBackwardedState());
     } catch (e) {
       emit(MusicErrorState(e.toString()));
