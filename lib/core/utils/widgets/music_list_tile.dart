@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:groove_box/core/model/music_model.dart';
 import 'package:groove_box/core/utils/app_gradient.dart';
 import 'package:groove_box/core/utils/app_text_styles.dart';
 import 'package:groove_box/core/utils/widgets/music_card.dart';

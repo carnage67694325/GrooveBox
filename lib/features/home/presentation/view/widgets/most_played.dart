@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:groove_box/core/model/music_model.dart';
 import 'package:groove_box/core/utils/widgets/music_list_tile.dart';
 import 'package:groove_box/features/home/presentation/view_model/get_music_cubit/get_music_cubit.dart';
 

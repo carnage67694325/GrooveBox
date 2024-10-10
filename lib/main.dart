@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:groove_box/core/utils/simple_bloc_observer.dart';
 import 'package:groove_box/core/utils/app_router.dart';
-import 'package:groove_box/features/home/data/home_repo.dart';
 import 'package:groove_box/features/home/data/home_repo_imp.dart';
 import 'package:groove_box/features/home/presentation/view_model/get_music_cubit/get_music_cubit.dart';
-import 'package:media_store_plus/media_store_plus.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {

@@ -13,8 +13,9 @@ class AppColors {
       Color(0xFFAB47BC); // Vibrant magenta (pairs well with accent)
   static const Color background =
       Color(0xFF121212); // Pinkish accent color// Deep dark background
-  static const Color cardColor =
-      Color(0xFF1E1E1E); // Slightly lighter dark for cards
+  static const Color cardColor = Color(0xFF1E1E1E);
+  static const Color panelColor =
+      Color(0xFFE0E6ED); // Slightly lighter dark for cards
   static const Color textLight = Color(0xFFFFFFFF); // Light text color
   static const Color textMedium = Color(0xFFCCCCCC); // Medium text color
   static const Color textDark = Color(0xFF999999); // Dark text color
