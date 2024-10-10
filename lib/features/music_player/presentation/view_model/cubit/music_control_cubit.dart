@@ -13,42 +13,47 @@ class MusicControlCubit extends Cubit<MusicControlState> {
   // Play music
   Future<void> playMusic(SongModel song) async {
     try {
+      emit(MusicPlayingState(song));
       musicPlayerRepo.setSong(song);
       await musicPlayerRepo.playMusic();
-      emit(MusicPlayingState(song));
+      // Emit the playing state
     } catch (e) {
-      emit(MusicErrorState(e.toString()));
+      emit(MusicErrorState(
+          e.toString())); // Emit an error state in case of failure
     }
   }
 
   // Pause music
   Future<void> pauseMusic(SongModel song) async {
     try {
-      musicPlayerRepo.setSong(song);
       await musicPlayerRepo.pauseMusic();
-      emit(MusicPausedState(song: song));
+      emit(MusicPausedState(song: song)); // Emit paused state
     } catch (e) {
-      emit(MusicErrorState(e.toString()));
+      emit(MusicErrorState(e.toString())); // Emit error state
     }
   }
 
   // Forward music by 10 seconds
-  Future<void> forwardMusic() async {
+  Future<void> forwardMusic(SongModel song) async {
     try {
       await musicPlayerRepo.forwardMusic();
-      emit(MusicForwardedState());
+      emit(MusicPlayingState(
+          song)); // Emit playing state after forward to reflect changes
     } catch (e) {
-      emit(MusicErrorState(e.toString()));
+      emit(
+          MusicErrorState(e.toString())); // Emit error state in case of failure
     }
   }
 
   // Backward music by 10 seconds
-  Future<void> backwardMusic() async {
+  Future<void> backwardMusic(SongModel song) async {
     try {
       await musicPlayerRepo.backwardMusic();
-      emit(MusicBackwardedState());
+      emit(MusicPlayingState(
+          song)); // Emit playing state after backward to reflect changes
     } catch (e) {
-      emit(MusicErrorState(e.toString()));
+      emit(
+          MusicErrorState(e.toString())); // Emit error state in case of failure
     }
   }
 }
