@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:groove_box/core/utils/app_color.dart';
 import 'package:groove_box/core/utils/app_text_styles.dart';
+import 'package:groove_box/features/music_player/presentation/view/widgets/music_player_controls.dart';
 
 class MusicPanelBody extends StatelessWidget {
   const MusicPanelBody({
@@ -57,11 +58,7 @@ class MusicPanelBody extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            Slider(
-              max: double.infinity,
-              value: 0,
-              onChanged: (value) => 10,
-            )
+            const MusicPlayerControls(),
           ],
         ),
       ),
