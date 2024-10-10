@@ -27,13 +27,14 @@ class AppGradients {
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
   );
-  static const LinearGradient horizontalGradient = LinearGradient(
+  static LinearGradient horizontalGradient = LinearGradient(
     colors: [
-      AppColors.primary, // Purple
-      AppColors.secondary, // Soft Lavender
+      Colors.purple.shade800, // Dark purple
+      Colors.blue.shade900, // Deep blue
     ],
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
+    stops: [0.3, 1.0], // Adjust stops for desired transition
   );
   static const RadialGradient radialGradient = RadialGradient(
     colors: [
@@ -66,5 +67,5 @@ class AppGradients {
     end: Alignment.bottomRight,
   );
   static BoxDecoration buildHorizontalGradeint() =>
-      const BoxDecoration(gradient: AppGradients.horizontalGradient);
+      BoxDecoration(gradient: AppGradients.horizontalGradient);
 }

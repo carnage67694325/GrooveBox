@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:groove_box/core/utils/app_gradient.dart';
 import 'package:groove_box/core/utils/app_router.dart';
 import 'package:groove_box/core/utils/permission_handler.dart';
-import 'package:groove_box/core/utils/widgets/custom_gradient_container.dart';
 import 'package:groove_box/features/home/presentation/view_model/get_music_cubit/get_music_cubit.dart';
 import 'package:groove_box/splash/presentation/view/widgets/sliding_animted_logo.dart';
 
