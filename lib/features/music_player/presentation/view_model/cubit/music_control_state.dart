@@ -13,7 +13,11 @@ class MusicPlayingState extends MusicControlState {
   MusicPlayingState(this.song);
 }
 
-class MusicPausedState extends MusicControlState {}
+class MusicPausedState extends MusicControlState {
+  final SongModel song;
+
+  MusicPausedState({required this.song});
+}
 
 class MusicForwardedState extends MusicControlState {}
 
@@ -24,7 +28,7 @@ class MusicNextState extends MusicControlState {}
 class MusicPreviousState extends MusicControlState {}
 
 class MusicErrorState extends MusicControlState {
-  final String message;
+  final String errMessage;
 
-  MusicErrorState(this.message);
+  MusicErrorState(this.errMessage);
 }

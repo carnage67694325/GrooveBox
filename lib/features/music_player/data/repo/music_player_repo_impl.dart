@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:groove_box/features/music_player/data/repo/music_player_repo.dart';
@@ -28,7 +30,11 @@ class MusicPlayerRepoImpl implements MusicPlayerRepo {
 
   @override
   Future<void> pauseMusic() async {
-    await audioPlayer.pause();
+    if (audioPlayer.playing) {
+      await audioPlayer.pause();
+    } else {
+      log('Music is not playing');
+    }
   }
 
   @override
