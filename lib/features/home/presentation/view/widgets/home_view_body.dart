@@ -11,8 +11,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:
-          const BoxDecoration(gradient: AppGradients.horizontalGradient),
+      decoration: AppGradients.buildHorizontalGradeint(),
       child: const CustomScrollView(
         slivers: [
           SliverToBoxAdapter(

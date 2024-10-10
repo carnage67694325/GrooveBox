@@ -65,4 +65,6 @@ class AppGradients {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
+  static BoxDecoration buildHorizontalGradeint() =>
+      const BoxDecoration(gradient: AppGradients.horizontalGradient);
 }

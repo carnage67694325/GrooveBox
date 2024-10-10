@@ -21,7 +21,7 @@ class RecentlyPlayedList extends StatelessWidget {
             if (state is GetMusicSuccess) {
               return ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 10,
+                itemCount: state.songs.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(4.0),
