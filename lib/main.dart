@@ -35,6 +35,7 @@ class GrooveBoxApp extends StatelessWidget {
             const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
           ],
         ),
+        debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,
       ),
     );
