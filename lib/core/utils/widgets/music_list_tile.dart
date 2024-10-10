@@ -30,84 +30,80 @@ class _MusicListTileState extends State<MusicListTile> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          MusicControlCubit(MusicPlayerRepoImpl(songModel: widget.songModel)),
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
-        child: Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-              gradient: AppGradients.diagonalGradient,
-              borderRadius: BorderRadius.circular(16)),
-          child: SizedBox(
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.sizeOf(context).height * .13,
-                      child: MusicCard(
-                        songModel: widget.songModel,
-                      ),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+            gradient: AppGradients.diagonalGradient,
+            borderRadius: BorderRadius.circular(16)),
+        child: SizedBox(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: MediaQuery.sizeOf(context).height * .13,
+                    child: MusicCard(
+                      songModel: widget.songModel,
                     ),
-                    const SizedBox(
-                      width: 20,
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: 150,
+                          child: Text(
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            widget.songModel.title,
+                            style: AppTextStyles.subHeading,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 2,
+                        ),
+                        SizedBox(
+                          width: 150,
+                          child: Text(
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            widget.songModel.artist ?? 'artist',
+                            style: AppTextStyles.body,
+                          ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 15),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            width: 150,
-                            child: Text(
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              widget.songModel.title,
-                              style: AppTextStyles.subHeading,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 2,
-                          ),
-                          SizedBox(
-                            width: 150,
-                            child: Text(
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              widget.songModel.artist ?? 'artist',
-                              style: AppTextStyles.body,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Spacer(),
-                    IconButton(
-                        onPressed: () {
-                          if (!isAddedToFavourite) {
-                            setState(() {
-                              isAddedToFavourite = true;
-                            });
-                          } else {
-                            setState(() {
-                              isAddedToFavourite = false;
-                            });
-                          }
-                        },
-                        icon: isAddedToFavourite
-                            ? const Icon(
-                                FontAwesomeIcons.solidHeart,
-                              )
-                            : const Icon(FontAwesomeIcons.heart)),
-                    const SizedBox(
-                      width: 8,
-                    )
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                  const Spacer(),
+                  IconButton(
+                      onPressed: () {
+                        if (!isAddedToFavourite) {
+                          setState(() {
+                            isAddedToFavourite = true;
+                          });
+                        } else {
+                          setState(() {
+                            isAddedToFavourite = false;
+                          });
+                        }
+                      },
+                      icon: isAddedToFavourite
+                          ? const Icon(
+                              FontAwesomeIcons.solidHeart,
+                            )
+                          : const Icon(FontAwesomeIcons.heart)),
+                  const SizedBox(
+                    width: 8,
+                  )
+                ],
+              ),
+            ],
           ),
         ),
       ),

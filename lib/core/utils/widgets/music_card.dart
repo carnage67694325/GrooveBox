@@ -15,32 +15,36 @@ class MusicCard extends StatelessWidget {
   final SongModel songModel;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        log('music played');
-        BlocProvider.of<MusicControlCubit>(context).playMusic(songModel);
+    return BlocBuilder<MusicControlCubit, MusicControlState>(
+      builder: (context, state) {
+        return GestureDetector(
+          onTap: () {
+            log('music played');
+            BlocProvider.of<MusicControlCubit>(context).playMusic(songModel);
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: SizedBox(
+              child: AspectRatio(
+                  aspectRatio: 3 / 4,
+                  child: Container(
+                      color: AppColors.musicCardColor,
+                      child: QueryArtworkWidget(
+                        id: songModel.id,
+                        type: ArtworkType.AUDIO,
+                        nullArtworkWidget: const Icon(
+                          FontAwesomeIcons.music,
+                          color: Colors.black,
+                          size: 50,
+                        ), // Default icon if no artwork
+                        artworkFit: BoxFit.cover, // Fit the artwork
+                        artworkBorder: BorderRadius.circular(
+                            0), // Optional: Make artwork circular
+                      ))),
+            ),
+          ),
+        );
       },
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(16),
-        child: SizedBox(
-          child: AspectRatio(
-              aspectRatio: 3 / 4,
-              child: Container(
-                  color: AppColors.musicCardColor,
-                  child: QueryArtworkWidget(
-                    id: songModel.id,
-                    type: ArtworkType.AUDIO,
-                    nullArtworkWidget: const Icon(
-                      FontAwesomeIcons.music,
-                      color: Colors.black,
-                      size: 50,
-                    ), // Default icon if no artwork
-                    artworkFit: BoxFit.cover, // Fit the artwork
-                    artworkBorder: BorderRadius.circular(
-                        0), // Optional: Make artwork circular
-                  ))),
-        ),
-      ),
     );
   }
 }

@@ -24,6 +24,9 @@ class GrooveBoxApp extends StatelessWidget {
         BlocProvider(
           create: (context) => GetMusicCubit(HomeRepoImp()),
         ),
+        BlocProvider(
+          create: (context) => MusicControlCubit(MusicPlayerRepoImpl()),
+        ),
       ],
       child: MaterialApp.router(
         theme: ThemeData.dark().copyWith(),
