@@ -4,8 +4,8 @@ import 'package:groove_box/core/utils/app_color.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class MusicCard extends StatelessWidget {
-  const MusicCard({super.key, required this.onTap, required this.songModel});
-  final void Function() onTap;
+  const MusicCard({super.key, this.onTap, required this.songModel});
+  final void Function()? onTap;
   final SongModel songModel;
   @override
   Widget build(BuildContext context) {
