@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyles {
   static const TextStyle heading = TextStyle(
     fontSize: 32.0, // For large headings (e.g., "Getting Started")
     fontWeight: FontWeight.bold,
     color: Colors.white,
+  );
+  static TextStyle qwitcher = GoogleFonts.qwitcherGrypen().copyWith(
+    fontSize: 44,
+    fontWeight: FontWeight.w900,
+    decorationColor: Colors.black,
   );
 
   static const TextStyle subHeading = TextStyle(

@@ -9,18 +9,18 @@ class FavouriteSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SliverToBoxAdapter(
+    return SliverToBoxAdapter(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 6),
+            padding: const EdgeInsets.only(left: 6),
             child: Text(
               'Favourite Songs',
-              style: AppTextStyles.heading,
+              style: AppTextStyles.qwitcher,
             ),
           ),
-          RecentlyPlayedList(),
+          const RecentlyPlayedList(),
         ],
       ),
     );
