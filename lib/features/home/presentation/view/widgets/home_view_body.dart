@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:groove_box/core/utils/app_gradient.dart';
 import 'package:groove_box/core/utils/app_text_styles.dart';
+import 'package:groove_box/core/utils/permission_handler.dart';
 import 'package:groove_box/features/home/presentation/view/widgets/favourite_section.dart';
 import 'package:groove_box/features/home/presentation/view/widgets/most_played.dart';
 import 'package:groove_box/features/home/presentation/view/widgets/recently_played_section.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
+
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  @override
+  void initState() {
+    PermissionHandler.requestPermissions();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
