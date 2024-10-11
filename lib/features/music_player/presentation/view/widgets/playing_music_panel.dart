@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:groove_box/core/utils/app_color.dart';
 import 'package:groove_box/core/utils/app_text_styles.dart';
 import 'package:groove_box/core/utils/widgets/music_card.dart';
+import 'package:groove_box/features/music_player/presentation/view/widgets/control_button.dart';
 import 'package:groove_box/features/music_player/presentation/view_model/cubit/music_control_cubit.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
@@ -37,26 +38,27 @@ class PlayingMusicPanel extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            IconButton(
-              onPressed: () {
-                log('paused music');
-                BlocProvider.of<MusicControlCubit>(context)
-                    .pauseMusic(songModel);
-              },
-              icon: const Icon(
-                FontAwesomeIcons.pause,
-                color: Colors.black,
-              ),
+            SizedBox(
+              height: 40,
+              child: ControlButton(
+                  onPressed: () {
+                    log('paused music');
+                    BlocProvider.of<MusicControlCubit>(context)
+                        .pauseMusic(songModel);
+                  },
+                  buttonSize: 20,
+                  icon: FontAwesomeIcons.pause),
             ),
             const SizedBox(width: 8),
-            IconButton(
-              onPressed: () {
-                BlocProvider.of<MusicControlCubit>(context)
-                    .forwardMusic(songModel);
-              },
-              icon: const Icon(
-                FontAwesomeIcons.forward,
-                color: Colors.black,
+            SizedBox(
+              height: 40,
+              child: ControlButton(
+                onPressed: () {
+                  BlocProvider.of<MusicControlCubit>(context)
+                      .forwardMusic(songModel);
+                },
+                buttonSize: 20,
+                icon: FontAwesomeIcons.forward,
               ),
             ),
           ],

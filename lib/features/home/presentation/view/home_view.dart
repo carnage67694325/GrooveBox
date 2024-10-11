@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:groove_box/core/utils/widgets/music_sliding_up_panel.dart';
+import 'package:groove_box/features/music_player/presentation/view/widgets/music_sliding_up_panel.dart';
 import 'package:groove_box/features/home/presentation/view/widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {

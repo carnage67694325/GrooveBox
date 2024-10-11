@@ -6,9 +6,11 @@ class ControlButton extends StatelessWidget {
     super.key,
     this.onPressed,
     required this.icon,
+    this.buttonSize,
   });
   final IconData icon;
   final void Function()? onPressed;
+  final double? buttonSize;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +21,7 @@ class ControlButton extends StatelessWidget {
       child: IconButton(
           onPressed: onPressed,
           icon: Icon(
-            size: 30,
+            size: buttonSize ?? 30,
             icon,
             color: Colors.white,
           )),

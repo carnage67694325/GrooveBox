@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:groove_box/core/utils/app_color.dart';
 import 'package:groove_box/core/utils/app_text_styles.dart';
 import 'package:groove_box/core/utils/widgets/music_card.dart';
+import 'package:groove_box/features/music_player/presentation/view/widgets/control_button.dart';
 import 'package:groove_box/features/music_player/presentation/view_model/cubit/music_control_cubit.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
@@ -48,26 +49,28 @@ class PausedMusicPanel extends StatelessWidget {
                 style: AppTextStyles.subHeading,
               ),
             const Spacer(),
-            IconButton(
-              onPressed: () {
-                log('play music');
-                BlocProvider.of<MusicControlCubit>(context)
-                    .playMusic(songModel!); // Call play
-              },
-              icon: const Icon(
-                FontAwesomeIcons.play,
-                color: Colors.black,
+            SizedBox(
+              height: 40,
+              child: ControlButton(
+                onPressed: () {
+                  log('play music');
+                  BlocProvider.of<MusicControlCubit>(context)
+                      .playMusic(songModel!); // Call play
+                },
+                buttonSize: 20,
+                icon: FontAwesomeIcons.play,
               ),
             ),
             const SizedBox(width: 8),
-            IconButton(
-              onPressed: () {
-                BlocProvider.of<MusicControlCubit>(context)
-                    .playMusic(songModel!);
-              },
-              icon: const Icon(
-                FontAwesomeIcons.forward,
-                color: Colors.black,
+            SizedBox(
+              height: 40,
+              child: ControlButton(
+                onPressed: () {
+                  BlocProvider.of<MusicControlCubit>(context)
+                      .playMusic(songModel!);
+                },
+                buttonSize: 20,
+                icon: FontAwesomeIcons.forward,
               ),
             ),
           ],

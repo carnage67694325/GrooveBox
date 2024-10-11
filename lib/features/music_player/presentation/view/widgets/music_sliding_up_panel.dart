@@ -22,7 +22,7 @@ class _MusicSlidingUpPanelState extends State<MusicSlidingUpPanel> {
     return SlidingUpPanel(
       color: AppColors.panelColor,
       controller: _panelController,
-      minHeight: 70.0, // Height of the collapsed panel
+      minHeight: 85.0, // Height of the collapsed panel
       maxHeight: screenHeight, // Full screen height when expanded
       borderRadius: BorderRadius.vertical(top: Radius.circular(_borderRadius)),
       onPanelSlide: (position) {
