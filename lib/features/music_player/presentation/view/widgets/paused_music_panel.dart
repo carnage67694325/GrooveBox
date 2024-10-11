@@ -55,7 +55,7 @@ class PausedMusicPanel extends StatelessWidget {
                 onPressed: () {
                   log('play music');
                   BlocProvider.of<MusicControlCubit>(context)
-                      .playMusic(songModel!); // Call play
+                      .resumeMusic(songModel!); // Call play
                 },
                 buttonSize: 20,
                 icon: FontAwesomeIcons.play,

@@ -29,6 +29,15 @@ class MusicPlayerRepoImpl implements MusicPlayerRepo {
   }
 
   @override
+  Future<void> resumeMusic() async {
+    if (!audioPlayer.playing) {
+      await audioPlayer.play(); // Resumes from the current paused position
+    } else {
+      log('Music is already playing');
+    }
+  }
+
+  @override
   Future<void> pauseMusic() async {
     if (audioPlayer.playing) {
       await audioPlayer.pause();
