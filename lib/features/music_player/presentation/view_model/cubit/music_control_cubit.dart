@@ -33,8 +33,8 @@ class MusicControlCubit extends Cubit<MusicControlState> {
   // Pause music
   Future<void> pauseMusic(SongModel song) async {
     try {
-      await musicPlayerRepo.pauseMusic();
       emit(MusicPausedState(song: song));
+      await musicPlayerRepo.pauseMusic();
     } catch (e) {
       emit(MusicErrorState(e.toString()));
     }
@@ -43,8 +43,8 @@ class MusicControlCubit extends Cubit<MusicControlState> {
   // Forward music by 10 seconds
   Future<void> forwardMusic(SongModel song) async {
     try {
-      await musicPlayerRepo.forwardMusic();
       emit(MusicPlayingState(song));
+      await musicPlayerRepo.forwardMusic();
     } catch (e) {
       emit(MusicErrorState(e.toString()));
     }
@@ -53,8 +53,8 @@ class MusicControlCubit extends Cubit<MusicControlState> {
   // Backward music by 10 seconds
   Future<void> backwardMusic(SongModel song) async {
     try {
-      await musicPlayerRepo.backwardMusic();
       emit(MusicPlayingState(song));
+      await musicPlayerRepo.backwardMusic();
     } catch (e) {
       emit(MusicErrorState(e.toString()));
     }

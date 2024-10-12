@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:groove_box/features/music_player/presentation/view/widgets/control_button.dart';
+import 'package:groove_box/features/music_player/presentation/view_model/cubit/music_control_cubit.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 
 class MusicPlayerControls extends StatelessWidget {
-  const MusicPlayerControls({super.key});
+  const MusicPlayerControls({
+    super.key,
+    this.isPlaying = false,
+    this.songModel,
+  });
+  final bool isPlaying;
+
+  final SongModel? songModel;
 
   @override
   Widget build(BuildContext context) {
@@ -22,21 +32,41 @@ class MusicPlayerControls extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ControlButton(
-              onPressed: () {},
+              onPressed: () {
+                !isPlaying
+                    ? BlocProvider.of<MusicControlCubit>(context)
+                        .playMusic(songModel!)
+                    : BlocProvider.of<MusicControlCubit>(context)
+                        .backwardMusic(songModel!);
+              },
               icon: FontAwesomeIcons.backward,
             ),
             const SizedBox(
-              width: 20,
+              width: 40,
             ),
             ControlButton(
-              onPressed: () {},
-              icon: FontAwesomeIcons.play,
+              onPressed: () {
+                if (!isPlaying) {
+                  BlocProvider.of<MusicControlCubit>(context)
+                      .resumeMusic(songModel!);
+                } else {
+                  BlocProvider.of<MusicControlCubit>(context)
+                      .pauseMusic(songModel!);
+                }
+              },
+              icon: !isPlaying ? FontAwesomeIcons.play : FontAwesomeIcons.pause,
             ),
             const SizedBox(
-              width: 20,
+              width: 40,
             ),
             ControlButton(
-              onPressed: () {},
+              onPressed: () {
+                !isPlaying
+                    ? BlocProvider.of<MusicControlCubit>(context)
+                        .playMusic(songModel!)
+                    : BlocProvider.of<MusicControlCubit>(context)
+                        .forwardMusic(songModel!);
+              },
               icon: FontAwesomeIcons.forward,
             ),
           ],
