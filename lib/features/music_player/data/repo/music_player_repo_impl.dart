@@ -1,13 +1,15 @@
 import 'dart:developer';
 
 import 'package:just_audio/just_audio.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:groove_box/features/music_player/data/repo/music_player_repo.dart';
 
 class MusicPlayerRepoImpl implements MusicPlayerRepo {
   final AudioPlayer audioPlayer = AudioPlayer();
+  final OnAudioQuery audioQuery = OnAudioQuery();
   SongModel? songModel;
-
+  Uri? artWorkUri;
   @override
   void setSong(SongModel song) {
     songModel = song;
@@ -17,8 +19,16 @@ class MusicPlayerRepoImpl implements MusicPlayerRepo {
   Future<void> playMusic() async {
     if (songModel?.uri != null) {
       try {
-        await audioPlayer
-            .setAudioSource(AudioSource.uri(Uri.parse(songModel!.uri!)));
+        await audioPlayer.setAudioSource(
+          AudioSource.uri(
+            Uri.parse(songModel!.uri!),
+            tag: MediaItem(
+                id: '${songModel!.id}',
+                artist: "${songModel!.artist}",
+                title: "${songModel!.title}",
+                artUri: artWorkUri),
+          ),
+        );
         await audioPlayer.play();
       } catch (e) {
         print('Error playing music: $e');
@@ -61,6 +71,20 @@ class MusicPlayerRepoImpl implements MusicPlayerRepo {
       await audioPlayer.seek(newPosition);
     } else {
       await audioPlayer.seek(Duration.zero);
+    }
+  }
+
+  @override
+  Future<void> playSongWithArtwork(SongModel songModel) async {
+    final artwork = await audioQuery.queryArtwork(
+      songModel.id,
+      ArtworkType.AUDIO,
+    );
+
+    if (artwork != null) {
+      log('artwork loaded');
+      artWorkUri = Uri.dataFromBytes(artwork,
+          mimeType: 'image/jpeg'); // Parse artwork to Uri
     }
   }
 }

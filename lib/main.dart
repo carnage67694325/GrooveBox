@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:groove_box/core/utils/permission_handler.dart';
 import 'package:groove_box/core/utils/simple_bloc_observer.dart';
 import 'package:groove_box/core/utils/app_router.dart';
 import 'package:groove_box/features/home/data/repos/home_repo_imp.dart';
 import 'package:groove_box/features/home/presentation/view_model/get_music_cubit/get_music_cubit.dart';
 import 'package:groove_box/features/music_player/data/repo/music_player_repo_impl.dart';
 import 'package:groove_box/features/music_player/presentation/view_model/cubit/music_control_cubit.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
 
-void main() {
+Future<void> main() async {
+  await JustAudioBackground.init(
+    androidNotificationChannelId: 'com.example.groove_box.channel.audio',
+    androidNotificationChannelName: 'Audio playback',
+    androidNotificationOngoing: true,
+  );
   Bloc.observer = SimpleBlocObserver();
   runApp(const GrooveBoxApp());
 }

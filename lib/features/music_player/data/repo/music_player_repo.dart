@@ -7,4 +7,5 @@ abstract class MusicPlayerRepo {
   Future<void> forwardMusic();
   Future<void> backwardMusic();
   void setSong(SongModel song);
+  Future<void> playSongWithArtwork(SongModel songModel);
 }

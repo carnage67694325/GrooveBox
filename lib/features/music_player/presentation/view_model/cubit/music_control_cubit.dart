@@ -10,13 +10,12 @@ class MusicControlCubit extends Cubit<MusicControlState> {
 
   MusicControlCubit(this.musicPlayerRepo) : super(MusicControlInitial());
 
-  // Play music
   Future<void> playMusic(SongModel song) async {
     try {
       emit(MusicPlayingState(song));
       musicPlayerRepo.setSong(song);
+      await musicPlayerRepo.playSongWithArtwork(song);
       await musicPlayerRepo.playMusic();
-      // Emit the playing state
     } catch (e) {
       emit(MusicErrorState(e.toString()));
     }
