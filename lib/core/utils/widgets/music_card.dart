@@ -28,6 +28,7 @@ class MusicCard extends StatelessWidget {
               child: Container(
                   color: AppColors.musicCardColor,
                   child: QueryArtworkWidget(
+                    size: 1000,
                     id: songModel.id,
                     type: ArtworkType.AUDIO,
                     nullArtworkWidget: const Icon(

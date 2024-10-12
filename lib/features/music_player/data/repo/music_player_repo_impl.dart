@@ -1,9 +1,11 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:just_audio/just_audio.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:groove_box/features/music_player/data/repo/music_player_repo.dart';
+import 'package:path_provider/path_provider.dart';
 
 class MusicPlayerRepoImpl implements MusicPlayerRepo {
   final AudioPlayer audioPlayer = AudioPlayer();
@@ -78,13 +80,22 @@ class MusicPlayerRepoImpl implements MusicPlayerRepo {
   Future<void> playSongWithArtwork(SongModel songModel) async {
     final artwork = await audioQuery.queryArtwork(
       songModel.id,
+      size: 1000,
       ArtworkType.AUDIO,
     );
 
-    if (artwork != null) {
-      log('artwork loaded');
-      artWorkUri = Uri.dataFromBytes(artwork,
-          mimeType: 'image/jpeg'); // Parse artwork to Uri
+    if (artwork != null && artwork.isNotEmpty) {
+      // Convert artwork (base64 image) to file
+      final directory = await getApplicationDocumentsDirectory();
+      final artworkFile = File('${directory.path}/artwork_${songModel.id}.jpg');
+
+      await artworkFile.writeAsBytes(artwork);
+
+      // Set artWorkUri as file URI
+      artWorkUri = Uri.file(artworkFile.path);
+    } else {
+      // Fallback to a default image
+      artWorkUri = Uri.parse("https://example.com/default_artwork.jpg");
     }
   }
 }
