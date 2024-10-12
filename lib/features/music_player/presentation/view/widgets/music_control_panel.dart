@@ -5,7 +5,7 @@ import 'package:groove_box/features/music_player/presentation/view/widgets/playi
 import 'package:groove_box/features/music_player/presentation/view_model/cubit/music_control_cubit.dart';
 
 class MusicControlPanel extends StatefulWidget {
-  const MusicControlPanel({Key? key}) : super(key: key);
+  const MusicControlPanel({super.key});
 
   @override
   State<MusicControlPanel> createState() => _MusicControlPanelState();

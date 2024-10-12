@@ -1,11 +1,8 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:groove_box/core/utils/app_color.dart';
-import 'package:groove_box/features/home/data/repos/home_repo_imp.dart';
-import 'package:groove_box/features/music_player/data/repo/music_player_repo_impl.dart';
 import 'package:groove_box/features/music_player/presentation/view_model/cubit/music_control_cubit.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
