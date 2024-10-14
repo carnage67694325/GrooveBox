@@ -43,8 +43,11 @@ class PausedMusicBody extends StatelessWidget {
               height: 40,
             ),
             Text(
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               songModel.title,
-              style: AppTextStyles.subHeading.copyWith(color: Colors.black),
+              style: AppTextStyles.subHeading
+                  .copyWith(color: Colors.black, fontSize: 25),
             ),
             const SizedBox(
               height: 2,
