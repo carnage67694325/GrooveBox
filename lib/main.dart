@@ -11,13 +11,17 @@ import 'package:just_audio_background/just_audio_background.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 Future<void> main() async {
+  await initBackgroundChannel();
+  Bloc.observer = SimpleBlocObserver();
+  runApp(const GrooveBoxApp());
+}
+
+Future<void> initBackgroundChannel() async {
   await JustAudioBackground.init(
     androidNotificationChannelId: 'com.example.groove_box.channel.audio',
     androidNotificationChannelName: 'Audio playback',
     androidNotificationOngoing: true,
   );
-  Bloc.observer = SimpleBlocObserver();
-  runApp(const GrooveBoxApp());
 }
 
 class GrooveBoxApp extends StatelessWidget {
