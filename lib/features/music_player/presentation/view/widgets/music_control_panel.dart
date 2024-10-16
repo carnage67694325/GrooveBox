@@ -32,7 +32,7 @@ class _MusicControlPanelState extends State<MusicControlPanel>
     _waveController = AnimationController(
       vsync: this,
       duration:
-          const Duration(milliseconds: 600), // Faster and smoother animation
+          const Duration(milliseconds: 400), // Faster and smoother animation
     );
   }
 
@@ -49,7 +49,7 @@ class _MusicControlPanelState extends State<MusicControlPanel>
         if (state is MusicControlInitial || state is MusicPausedState) {
           _waveController.reverse(); // Trigger wave animation for pause
           return AnimatedSwitcher(
-            duration: const Duration(milliseconds: 400), // Faster transition
+            duration: const Duration(milliseconds: 250), // Faster transition
             switchInCurve: Curves.easeInOut, // Smoother curve
             child: PausedMusicPanel(
               key: const ValueKey('paused'),
@@ -59,7 +59,7 @@ class _MusicControlPanelState extends State<MusicControlPanel>
         } else if (state is MusicPlayingState) {
           _waveController.forward(); // Trigger wave animation for play
           return AnimatedSwitcher(
-            duration: const Duration(milliseconds: 400),
+            duration: const Duration(milliseconds: 250),
             switchInCurve: Curves.easeInOut,
             child: PlayingMusicPanel(
               key: const ValueKey('playing'),
