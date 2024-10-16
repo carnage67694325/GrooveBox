@@ -10,9 +10,16 @@ import 'package:groove_box/features/music_player/presentation/view/widgets/contr
 import 'package:groove_box/features/music_player/presentation/view_model/cubit/music_control_cubit.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
-class PlayingMusicPanel extends StatelessWidget {
+class PlayingMusicPanel extends StatefulWidget {
   final SongModel songModel;
   const PlayingMusicPanel({super.key, required this.songModel});
+
+  @override
+  State<PlayingMusicPanel> createState() => _PlayingMusicPanelState();
+}
+
+class _PlayingMusicPanelState extends State<PlayingMusicPanel> {
+  late bool? isPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +32,14 @@ class PlayingMusicPanel extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Row(
           children: [
-            MusicCard(songModel: songModel),
+            MusicCard(songModel: widget.songModel),
             const SizedBox(width: 32),
             SizedBox(
               width: 150,
               child: Text(
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                songModel.title,
+                widget.songModel.title,
                 style: AppTextStyles.subHeading
                     .copyWith(color: Colors.black.withOpacity(.7)),
               ),
@@ -41,10 +48,12 @@ class PlayingMusicPanel extends StatelessWidget {
             SizedBox(
               height: 40,
               child: ControlButton(
+                  isPressed: true,
                   onPressed: () {
                     log('paused music');
+
                     BlocProvider.of<MusicControlCubit>(context)
-                        .pauseMusic(songModel);
+                        .pauseMusic(widget.songModel);
                   },
                   buttonSize: 20,
                   icon: FontAwesomeIcons.pause),
@@ -55,7 +64,7 @@ class PlayingMusicPanel extends StatelessWidget {
               child: ControlButton(
                 onPressed: () {
                   BlocProvider.of<MusicControlCubit>(context)
-                      .forwardMusic(songModel);
+                      .forwardMusic(widget.songModel);
                 },
                 buttonSize: 20,
                 icon: FontAwesomeIcons.forward,

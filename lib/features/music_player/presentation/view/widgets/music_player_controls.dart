@@ -45,6 +45,7 @@ class MusicPlayerControls extends StatelessWidget {
               width: 40,
             ),
             ControlButton(
+              isPressed: isPlaying,
               onPressed: () {
                 if (!isPlaying) {
                   BlocProvider.of<MusicControlCubit>(context)
