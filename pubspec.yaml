@@ -47,6 +47,7 @@ dependencies:
   just_audio: ^0.9.41
   just_audio_background: ^0.0.1-beta.13
   path_provider: ^2.1.4
+  device_preview: ^1.2.0
 
 dev_dependencies:
   flutter_test:

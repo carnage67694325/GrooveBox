@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:groove_box/core/utils/simple_bloc_observer.dart';
@@ -13,7 +14,12 @@ import 'package:responsive_framework/responsive_framework.dart';
 Future<void> main() async {
   await initBackgroundChannel();
   Bloc.observer = SimpleBlocObserver();
-  runApp(const GrooveBoxApp());
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const GrooveBoxApp(),
+    ),
+  );
 }
 
 Future<void> initBackgroundChannel() async {
@@ -39,6 +45,7 @@ class GrooveBoxApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
+        locale: DevicePreview.locale(context),
         theme: ThemeData.dark().copyWith(),
         builder: (context, child) => ResponsiveBreakpoints.builder(
           child: child!,

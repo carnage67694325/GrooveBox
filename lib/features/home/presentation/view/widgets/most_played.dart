@@ -18,9 +18,10 @@ class MostPlayed extends StatelessWidget {
             },
           );
         } else if (state is GetMusicFailure) {
-          return Center(child: Text(state.errMessage));
+          return SliverToBoxAdapter(
+              child: Center(child: Text(state.errMessage)));
         } else {
-          return Text('loading');
+          return const SliverToBoxAdapter(child: Text('loading'));
         }
       },
     );

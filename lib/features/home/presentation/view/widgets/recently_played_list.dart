@@ -33,9 +33,9 @@ class RecentlyPlayedList extends StatelessWidget {
                 },
               );
             } else if (state is GetMusicFailure) {
-              return Text(state.errMessage);
+              return SliverToBoxAdapter(child: Text(state.errMessage));
             } else {
-              return const Text('loading');
+              return const SliverToBoxAdapter(child: Text('loading'));
             }
           },
         ),
