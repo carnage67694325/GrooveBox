@@ -62,7 +62,7 @@ class PausedMusicBody extends StatelessWidget {
             ),
             MusicPlayerControls(
               isPlaying: false,
-              songModel: songModel,
+              audioModel: songModel,
             ),
           ],
         ),

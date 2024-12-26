@@ -9,11 +9,11 @@ class MusicPlayerControls extends StatelessWidget {
   const MusicPlayerControls({
     super.key,
     this.isPlaying = false,
-    this.songModel,
+    this.audioModel,
   });
   final bool isPlaying;
 
-  final SongModel? songModel;
+  final AudioModel? audioModel;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +35,9 @@ class MusicPlayerControls extends StatelessWidget {
               onPressed: () {
                 !isPlaying
                     ? BlocProvider.of<MusicControlCubit>(context)
-                        .playMusic(songModel!)
+                        .playMusic(audioModel!)
                     : BlocProvider.of<MusicControlCubit>(context)
-                        .backwardMusic(songModel!);
+                        .backwardMusic(audioModel!);
               },
               icon: FontAwesomeIcons.backward,
             ),
@@ -49,10 +49,10 @@ class MusicPlayerControls extends StatelessWidget {
               onPressed: () {
                 if (!isPlaying) {
                   BlocProvider.of<MusicControlCubit>(context)
-                      .resumeMusic(songModel!);
+                      .resumeMusic(audioModel!);
                 } else {
                   BlocProvider.of<MusicControlCubit>(context)
-                      .pauseMusic(songModel!);
+                      .pauseMusic(audioModel!);
                 }
               },
               icon: !isPlaying ? FontAwesomeIcons.play : FontAwesomeIcons.pause,
@@ -64,9 +64,9 @@ class MusicPlayerControls extends StatelessWidget {
               onPressed: () {
                 !isPlaying
                     ? BlocProvider.of<MusicControlCubit>(context)
-                        .playMusic(songModel!)
+                        .playMusic(audioModel!)
                     : BlocProvider.of<MusicControlCubit>(context)
-                        .forwardMusic(songModel!);
+                        .forwardMusic(audioModel!);
               },
               icon: FontAwesomeIcons.forward,
             ),

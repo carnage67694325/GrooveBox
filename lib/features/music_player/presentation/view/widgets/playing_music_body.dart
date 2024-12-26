@@ -62,7 +62,7 @@ class PLayingMusicBody extends StatelessWidget {
             ),
             MusicPlayerControls(
               isPlaying: true,
-              songModel: songModel,
+              audioModel: songModel,
             ),
           ],
         ),
